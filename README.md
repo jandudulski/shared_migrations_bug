@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Without shared section:
 
-Things you may want to cover:
+```
+~/W/shared_migrations (main|✔) $ rails db:migrate:status
 
-* Ruby version
+database: db/foo_dev.sqlite3
 
-* System dependencies
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20220608125044  Create foos
 
-* Configuration
 
-* Database creation
+database: db/bar_dev.sqlite3
 
-* Database initialization
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20220608125006  Create bars
+```
 
-* How to run the test suite
+With shared section:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+~/W/shared_migrations (main|✔) $ rails db:migrate:status
 
-* Deployment instructions
+database: db/foo_dev.sqlite3
 
-* ...
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20220608125044  ********** NO FILE **********
+
+
+database: db/bar_dev.sqlite3
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20220608125006  ********** NO FILE **********
+```
