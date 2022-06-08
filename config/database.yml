@@ -4,6 +4,15 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
 #
+shared:
+  foo:
+    migrations_paths:
+      - "db/foo"
+
+  bar:
+    migrations_paths:
+      - "db/bar"
+
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -13,14 +22,10 @@ development:
   foo:
     <<: *default
     database: db/foo_dev.sqlite3
-    migrations_paths:
-      - "db/foo"
 
   bar:
     <<: *default
     database: db/bar_dev.sqlite3
-    migrations_paths:
-      - "db/bar"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,24 +34,16 @@ test:
   foo:
     <<: *default
     database: db/foo_test.sqlite3
-    migrations_paths:
-      - "db/foo"
 
   foo:
     <<: *default
     database: db/bar_test.sqlite3
-    migrations_paths:
-      - "db/bar"
 
 production:
   foo:
     <<: *default
     database: db/foo_prod.sqlite3
-    migrations_paths:
-      - "db/foo"
 
   bar:
     <<: *default
     database: db/bar_prod.sqlite3
-    migrations_paths:
-      - "db/bar"
