@@ -1,0 +1,2 @@
+class Foo < FooRecord
+end
