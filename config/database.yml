@@ -35,7 +35,7 @@ test:
     <<: *default
     database: db/foo_test.sqlite3
 
-  foo:
+  bar:
     <<: *default
     database: db/bar_test.sqlite3
 
